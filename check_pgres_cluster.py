@@ -22,7 +22,7 @@ pgres_cluster = []
 pgpool_cluster = []
 cluster = [[0,0,0],[0,0,0]]
 
-ssh_options = f'-q -i /var/adm/rational/clearcase/.ssh/id_rsa.postgres.prod.on-premises'
+ssh_options = f'-q -i {db_key}'
 
 pgpool_cmd = f'ssh {ssh_options} postgres@{args.hostname} \'pcp_watchdog_info -w\' | grep 9000'
 postgres_cmd = f'psql -U postgres -h {args.hostname} -p 5432 -c \'show pool_nodes;\' | grep 5493'
